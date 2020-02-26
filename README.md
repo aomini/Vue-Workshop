@@ -9,4 +9,4 @@ Tutors:
 
 ## Introduction to Vue and Vue Instance <a name="introductionVue" />
 This part covers the **installation, basic guides and the Vue Instance.**\
-A short introduction to Vue basics. Replay can be found at: [Vue workshop day 1](https:google.com)
+A short introduction to Vue basics. Replay can be found at: [Vue workshop day 1](https://www.youtube.com/watch?v=l8ieonUZWho)
