@@ -3,6 +3,8 @@ Short crash vue workshop held at Shubhu Tech P. LTD \
 Tutors: 
 * Rakesh Shrestha
 * [Lekhraj Rai](https://github.com/lekhrajShubhu) 
+Designer:
+* [Prajesh Jha](https://github.com/prajeshShubhu)
 
 # Table of contents
 1. [Introduction to Vue Instance](#introductionVue)
