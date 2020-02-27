@@ -122,13 +122,18 @@
  
     <div id="root" style="padding: 100px">
         <div>
-            <label for="">Search item</label>
-            <input type="text" v-model="searchedText" @keyup = "search">
-        </div>
-        <div><button @click="renderLists">Render</button></div>
+			<label for="">Search item</label>
+			
+			<input type="text" v-model="searchedText" @keyup = "search">
+			<input type="checkbox" v-model="checked" value="value one">
+			<input type="checkbox" v-model="checked" value="value two">
+			<input type="checkbox" v-model="checked" value="value three">
+		
+		</div>
+        <!-- <div><button @click="renderLists">Render</button></div> -->
         <div>
             <h2>List of items</h2>
-            <ul v-for="(list, index) in items">
+            <ul v-for="(list, index) in filteredLists">
                 <li v-key="index">{{list.item}}</li>
             </ul>
         </div>
@@ -142,24 +147,28 @@
         const vm = new Vue({ //view model (MVVVM)
             el : "#root",
             data : {
-                items : [],
-                searchedText : ''
+                
+                searchedText : '',
+				items:[
+					{item : 'milk', price : 20}, 
+					{item : 'eggs', price : 30},
+					{item : 'mango juice', price : 40},
+					{item : 'chocolates', price : 50},
+				],
+				checked:[],
+
             },
             methods : {
-                renderLists(){
-                    let data = [
-                        {item : 'milk', price : 20}, 
-                        {item : 'eggs', price : 30},
-                        {item : 'mango juice', price : 40},
-                        {item : 'chocolates', price : 50},
-                    ];
-                    this.items = data;
-                },
 
                 search(){
-                    this.items = this.items.filter(x => x.item.includes(this.searchedText))
+					return this.items.filter(x => x.item.includes(this.searchedText));
                 }
-            }
+            },
+			computed : {
+				filteredLists: function(){
+					return this.search();
+				}
+			}
         });
 
 
