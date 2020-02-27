@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Workshop</title>
+	<link href="https://fonts.googleapis.com/css?family=Trade+Winds&display=swap" rel="stylesheet">
+
+</head>
+<style type="text/css">
+	body {
+		background: #EB5757;
+		/* fallback for old browsers */
+		background: -webkit-linear-gradient(to left, #000000, #EB5757);
+		/* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to left, #000000, #EB5757);
+		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		margin: 0 auto;
+		font-family: 'Trade Winds';
+	}
+
+	#main_container {
+		background: white;
+		width: 400px;
+		margin: 20px;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 30px;
+		border-radius: 20px;
+		border: 2px solid black;
+		/* box-shadow: 0px 0px 8px 8px #ffd0d0; */
+	}
+
+	#birth_date_input,
+	#age_container {
+		text-align: center;
+		margin: 20px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	#age_container {
+		border-radius: 50px;
+		border: 1px solid #000;
+		font-weight: bolder;
+		background: #EEE;
+		font-size: 20px;
+		line-height: 60px;
+		outline: none;
+		width: 400px;
+		text-align: center;
+	}
+
+	#birth_date_input input {
+		HEIGHT: 45PX;
+		WIDTH: 200PX;
+		text-align: center;
+		border-radius: 20px;
+		border: 1px solid #541f1f;
+		outline: none;
+		box-shadow: 0px 0px 10px 2px #a63d3d;
+		font-family: 'Trade Winds', ;
+	}
+
+	.btn {
+		background-image: linear-gradient(to right, #000000 0%, #e74c3c 51%, #000000 100%);
+		border-radius: 40px;
+		box-sizing: border-box;
+		color: #73261e;
+		display: block;
+		height: 50px;
+		letter-spacing: 1px;
+		margin: 0 auto;
+		padding: 4px;
+		position: relative;
+		text-decoration: none;
+		text-transform: uppercase;
+		width: 170px;
+		z-index: 2;
+	}
+
+	.btn:hover {
+		color: #fff;
+		box-shadow: 0px 0px 4px 4px #ffd0d0;
+	}
+
+	.btn span {
+		align-items: center;
+		background: #e7e8e9;
+		border-radius: 40px;
+		display: flex;
+		justify-content: center;
+		height: 100%;
+		transition: background .5s ease;
+		width: 100%;
+	}
+
+	.btn:hover span {
+		background: transparent;
+	}
+
+	#age {
+		padding: 5px;
+		border: 3px dashed #AAA;
+		background-color: green;
+	}
+
+	.dobLabel {
+		text-align: center;
+		color: #fff;
+
+	}
+
+	.dobLabel label {
+		font-size: 30px;
+		font-weight: 600;
+		font-family: 'Trade Winds';
+		color: black;
+	}
+</style>
+<body>   
+ 
+    <div id="root" style="padding: 100px">
+        <div>
+            <label for="">Search item</label>
+            <input type="text" v-model="searchedText" @keyup = "search">
+        </div>
+        <div><button @click="renderLists">Render</button></div>
+        <div>
+            <h2>List of items</h2>
+            <ul v-for="(list, index) in items">
+                <li v-key="index">{{list.item}}</li>
+            </ul>
+        </div>
+        <pre>{{$data}}</pre>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
+
+    <script>     
+ 
+        const vm = new Vue({ //view model (MVVVM)
+            el : "#root",
+            data : {
+                items : [],
+                searchedText : ''
+            },
+            methods : {
+                renderLists(){
+                    let data = [
+                        {item : 'milk', price : 20}, 
+                        {item : 'eggs', price : 30},
+                        {item : 'mango juice', price : 40},
+                        {item : 'chocolates', price : 50},
+                    ];
+                    this.items = data;
+                },
+
+                search(){
+                    this.items = this.items.filter(x => x.item.includes(this.searchedText))
+                }
+            }
+        });
+
+
+    </script>
+
+</body>
+</html>
