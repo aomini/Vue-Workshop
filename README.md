@@ -2,8 +2,8 @@
 Short crash vue workshop held at Shubhu Tech P. LTD \
 Tutors: 
 * Rakesh Shrestha
-* [Lekhraj Rai](https://github.com/lekhrajShubhu) 
-Designer: \
+* [Lekhraj Rai](https://github.com/lekhrajShubhu) \
+Designer:
 * [Prajesh Jha](https://github.com/shubhuPrajesh)
 
 # Table of contents
