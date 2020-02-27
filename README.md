@@ -6,7 +6,7 @@ Tutors:
 
 # Table of contents
 1. [Introduction to Vue Instance](#introductionVue)
-2. [Computed properties, watchers and methods(#comWatchersmethods)
+2. [Computed properties, watchers and methods](#comWatchersmethods)
 
 ## Introduction to Vue and Vue Instance <a name="introductionVue" />
 This part covers the **installation, basic guides and the Vue Instance.**\
