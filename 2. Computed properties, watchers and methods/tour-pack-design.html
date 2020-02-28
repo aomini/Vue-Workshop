@@ -233,18 +233,15 @@
       <h2>Packed items</h2>
       <div class="piItems">
         <ul>
-          <div class="piList d-flex" v-for="item in itemsPacked">
+          <div class="piList d-flex" v-for="item in renderPackedItems">
             <li>{{item.name}}</li>
-            <button class="btn-hover color-11" style="font-family: 'Roboto';">
+            <button class="btn-hover color-11" @click="unpackedItem(item.id)" style="font-family: 'Roboto';">
               Remove
             </button>
           </div>
         </ul>
       </div>
     </div>
-    <pre>
-      {{$data}}
-    </pre>
   </div>
 
 </div>
@@ -257,29 +254,34 @@
       tourItems:[
         {id:1,name:'Tour Item one',packed:false},
         {id:2,name:'Tour Item two',packed:false},
-        {id:3,name:'Tour Item three',packed:true},
-        {id:4,name:'Tour Item four',packed:false},
+        {id:3,name:'Tour Item three',packed:false},
+        {id:4,name:'Tour Item four',packed:true},
       ],
-
       items_packed:[],
-      itemsPacked:[],
     },
     methods: {
       packItems(){
-        this.itemsPacked =  this.tourItems.filter((item, index)=>{
-           return this.items_packed.includes(item.id);
+        this.tourItems.map((item, index) =>{
+         if(this.items_packed.includes(item.id)){
+           item.packed = true;
+         }
         });
       },
-      // renderItems(){
-      //   return this.tourItems.filter((item, index)=>{
-      //      return this.items_packed.includes(item.id);
-      //   });
-      // }
+
+      unpackedItem(id){
+        this.tourItems.map((item)=>{
+          if(item.id == id) item.packed = false;
+        });
+      }
     },
     computed: {
       renderUnpackedItems(){
         return this.tourItems.filter(x => x.packed == false);
       },
+
+      renderPackedItems(){
+        return this.tourItems.filter(x => x.packed == true);
+      }
     }
   });
 </script>
